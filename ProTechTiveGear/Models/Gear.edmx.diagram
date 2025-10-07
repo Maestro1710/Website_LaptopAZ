@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ac0390d2421241e79b1edd459e32ef82" Name="Diagram1" ZoomLevel="112">
+        <EntityTypeShape EntityType="ProTechTiveGearModel.Admin" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProTechTiveGearModel.Banner" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProTechTiveGearModel.Blog" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProTechTiveGearModel.Brand" Width="1.5" PointX="3.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProTechTiveGearModel.Customer" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProTechTiveGearModel.Item" Width="1.875" PointX="6" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProTechTiveGearModel.ItemType" Width="1.5" PointX="3.75" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProTechTiveGearModel.Menu" Width="1.5" PointX="1.5" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProTechTiveGearModel.Order" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProTechTiveGearModel.OrderDetail" Width="1.5" PointX="8.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProTechTiveGearModel.Payment" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="ProTechTiveGearModel.FK__Brand__MenuID__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="ProTechTiveGearModel.FK__Item__BrandID__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="ProTechTiveGearModel.FK__Order__CustomerI__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="ProTechTiveGearModel.FK__Item__TypeID__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="ProTechTiveGearModel.FK__OrderDeta__ItemI__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="ProTechTiveGearModel.FK__ItemType__MenuID__182C9B23" ManuallyRouted="false" />
+        <AssociationConnector Association="ProTechTiveGearModel.FK__OrderDeta__Order__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="ProTechTiveGearModel.FK__Payment__OrderID__2A4B4B5E" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

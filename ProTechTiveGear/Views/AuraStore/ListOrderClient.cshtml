@@ -1,0 +1,91 @@
+﻿@model IEnumerable<ProTechTiveGear.Models.OrderEntity>
+
+@{
+	ViewBag.Title = "ListOrderClient";
+	Layout = "~/Views/Shared/_LayoutHomePage.cshtml";
+}
+
+<table class="table">
+	<tr>
+		<th>
+			Ngày đặt hàng
+		</th>
+		<th>
+			Ngày giao hàng
+		</th>
+		<th>
+			Trạng thái
+		</th>
+		<th>
+			Tên
+		</th>
+		<th>
+			Địa chỉ
+		</th>
+		<th>
+			Email
+		</th>
+		<th></th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Orderdate)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Deliverydate)
+			</td>
+
+            <td>
+                @if (item.Status == 1)
+                {
+                    <p>Đã giao</p>
+                }
+                else if (item.Status == 0)
+                {
+                    <p>Chờ xử lý</p>
+                }
+                else
+                {
+                    <p>Đang giao</p>
+                }
+            </td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Customer.Name)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Customer.Address)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Customer.EmailAddress)
+			</td>
+
+			<td>
+
+
+
+				<button type="button" class="pest_btn" data-toggle="collapse" data-target="#@item.ID" aria-expanded="false" data-parent="#myaccordion">
+
+					Chi tiết
+				</button>
+
+
+			</td>
+		</tr>
+		<tr>
+
+			<td colspan="5">
+
+				<div class="card-body collapse hile" data-toggle="collapse" aria-expanded="false" id="@item.ID">
+					@Html.Action("ListOrderDetailClient", "AuraStore", new { id = item.ID })
+				</div>
+			</td>
+		</tr>
+
+	}
+
+</table>
+
+
