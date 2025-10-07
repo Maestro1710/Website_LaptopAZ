@@ -115,15 +115,16 @@ namespace ProTechTiveGear.Controllers
             return View(details);
         }
 
-        public FileResult ExportSoldOrders()
+        public FileResult ExportSoldOrders(int month, int year)
         {
-            var fileBytes = adminService.ExportSoldOrdersToExcel();
-            string fileName = $"BaoCaoDonHang_{DateTime.Now:yyyyMMddHHmm}.xlsx";
+            var fileBytes = adminService.ExportSoldOrdersToExcel(month, year);
+            string fileName = $"BaoCaoDonHang_{month:D2}_{year}.xlsx";
 
             return File(fileBytes,
                 "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                 fileName);
         }
+
 
 
     }
