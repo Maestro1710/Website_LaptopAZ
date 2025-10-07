@@ -75,16 +75,19 @@ namespace ProTechTiveGear.Services
 
         // Nghiệp vụ lấy báo cáo số lượng bán trong tháng
 
-        public byte[] ExportSoldOrdersToExcel()
+        public byte[] ExportSoldOrdersToExcel(int month, int year)
         {
-            // Lấy danh sách đơn hàng đã bán (Status = 1)
+            // Lọc đơn hàng đã bán theo tháng và năm
             var soldOrders = db.Orders
-                .Where(o => o.Status == 1)
+                .Where(o => o.Status == 1 &&
+                            o.Orderdate.HasValue &&
+                            o.Orderdate.Value.Month == month &&
+                            o.Orderdate.Value.Year == year)
                 .ToList();
 
             using (var workbook = new XLWorkbook())
             {
-                var ws = workbook.Worksheets.Add("Đơn hàng đã bán");
+                var ws = workbook.Worksheets.Add($"Đơn hàng {month}-{year}");
 
                 // Tiêu đề cột
                 ws.Cell(1, 1).Value = "Mã đơn hàng";
@@ -98,7 +101,6 @@ namespace ProTechTiveGear.Services
                 {
                     ws.Cell(row, 1).Value = order.ID;
 
-                    // Nếu có khách hàng thì ghi tên, ngược lại ghi "Khách vãng lai"
                     ws.Cell(row, 2).Value = order.Customer != null
                         ? order.Customer.Name ?? order.Customer.Username
                         : "Khách vãng lai";
@@ -119,6 +121,7 @@ namespace ProTechTiveGear.Services
                 }
             }
         }
+
     }
 
 }
